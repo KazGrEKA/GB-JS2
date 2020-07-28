@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //Задание 1
+    const text1 = "Lorem 'ipsum dolor sit' amet, consectetur adipisicing elit. Dolorem quis esse, doloremque pariatur consectetur, tenetur, itaque fugiat commodi sed quasi eius dolores incidunt! Velit sed nobis accusantium quas ut a dicta, dolore nostrum, soluta sapiente iste repudiandae vel ducimus don't esse neque labore, laboriosam dolorem qui eius voluptatum similique. Soluta quo facilis beatae libero vitae, ab, 'dolorem iste' veritatis tempora corrupti eligendi, laborum quisn't animi ad assumenda mollitia id voluptas excepturi debitis voluptatibus harum illum sint. Autem facilis quibusdam eligendi dolor, quasi, aliquid 'doloribus ipsam' perferendis fuga recusandae omnis ea, aren't eius. In aperiam alias sit quae laudantium reprehenderit. Dolor, reprehenderit, mollitia.";
+    const regexp1 = /\'/g;
+    console.log(text1.replace(regexp1, '\"'));
+    </script>
+    
+    <script>
+    //Задание 2
+    const text2 = "Lorem 'ipsum dolor sit' amet, consectetur adipisicing elit. Dolorem quis esse, doloremque pariatur consectetur, tenetur, itaque fugiat commodi sed quasi eius dolores incidunt! Velit sed nobis accusantium quas ut a dicta, dolore nostrum, soluta sapiente iste repudiandae vel ducimus don't esse neque labore, laboriosam dolorem qui eius voluptatum similique. Soluta quo facilis beatae libero vitae, ab, 'dolorem iste' veritatis tempora corrupti eligendi, laborum quisn't animi ad assumenda mollitia id voluptas excepturi debitis voluptatibus harum illum sint. Autem facilis quibusdam eligendi dolor, quasi, aliquid 'doloribus ipsam' perferendis fuga recusandae omnis ea, aren't eius. In aperiam alias sit quae laudantium reprehenderit. Dolor, reprehenderit, mollitia.";
+    const regexp2 = /\'(?!t)/g;
+    console.log(text2.replace(regexp2, '"'));
+    </script>
+</body>
+</body>
+</html>
