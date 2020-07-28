@@ -1,64 +1,61 @@
-/*esversion:6*/
-//Как можно упростить или сократить запись функций? - не представляю
+class ProductsList {
+    constructor(container = '.products') {
+        this.container = container;
+        this.goods = [];
+        this.allProducts = [];
+        this._fetchProducts();
+        this.render();
+    }
+    _fetchProducts() {
+        this.goods = [
+            {
+                id: 1,
+                title: 'Notebook',
+                price: 2000
+            },
+            {
+                id: 2,
+                title: 'Mouse',
+                price: 20
+            },
+            {
+                id: 3,
+                title: 'Keyboard',
+                price: 200
+            },
+            {
+                id: 4,
+                title: 'Gamepad',
+                price: 50
+            },
+        ];
+    }
+    
+    render() {
+        const block = document.querySelector(this.container);
+        for (let product of this.goods) {
+            const item = new ProductItem(product);
+            this.allProducts.push(item);
+            block.insertAdjacentHTML("beforeend", item.render());
+        }
+    }
+}
 
-const products = [
-    {
-        id: 1,
-        title: 'Notebook',
-        price: 2000
-    },
-    {
-        id: 2,
-        title: 'Mouse',
-        price: 20
-    },
-    {
-        id: 3,
-        title: 'Keyboard',
-        price: 200
-    },
-    {
-        id: 4,
-        title: 'Gamepad',
-        price: 50
-    },
-    {
-        id: 5,
-        title: 'Notebook 2',
-        price: 2000
-    },
-    {
-        id: 6,
-        title: 'Mouse 2',
-        price: 20
-    },
-    {
-        id: 7,
-        title: 'Keyboard 2',
-        price: 200
-    },
-    {
-        id: 8,
-        title: 'Gamepad 2',
-        price: 50
-    },
-    {
-        id: 9 //проверка умолчаний
-    },
-];
+class ProductItem {
+    constructor(product, image = 'https://placehold.it/200x150') {
+        this.id = product.id;
+        this.title = product.title;
+        this.price = product.price;
+        this.image = image;
+    }
+    render() {
+        return `<div class="product-item">
+                    <h3>${this.title}</h3>
+                    <img src="${this.image}">
+                    <p>${this.price}</p>
+                    <button class="buy-btn">Купить</button>
+                </div>`
+    }
+}
 
-const renderProduct = (title = 'Название', price = 'Цена') => {
-    return `<div class="product-item">
-                <h3>${title}</h3>
-                <p>${price}</p>
-                <button class="buy-btn">Купить</button>
-            </div>`
-};
-
-const renderPage = list => {
-    const productsList = list.map(item => renderProduct(item.title, item.price));
-    console.log(productsList);
-    document.querySelector('.products').innerHTML = productsList.join(' ');
-};
-
-renderPage(products);
+let list = new ProductsList();
